@@ -1,6 +1,6 @@
 {
   "name": "amazeui-gulp-tasks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gulp tasks for Amaze UI plugin development.",
   "main": "index.js",
   "scripts": {

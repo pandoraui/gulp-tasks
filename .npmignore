@@ -1,13 +1,11 @@
 .DS_Store
 node_modules
 /.idea
-/dist/*.html
-/dist/docs
+/dist
 /docs
-tasks
 gulpfile.js
 .editorconfig
 .gitignore
 .jshintrc
 .npmignore
-bower.json
+/tests
