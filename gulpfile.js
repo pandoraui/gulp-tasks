@@ -31,7 +31,8 @@ var config = {
     src: './tests/test.less',
     autoPrefixer: docUtil.autoprefixerBrowsers,
     dist: './dist',
-    watches: './tests/**/*.less'
+    watches: './tests/**/*.less',
+    banner: true
   },
 
   // docs:md
@@ -67,22 +68,28 @@ var config = {
     filename: 'app.js',
     transforms: [['browserify-shim', {global: true}]],
     plugins: [],
-    dist: 'dist'
+    dist: 'dist',
+    banner: true
   },
 
   // clean path
   clean: 'dist',
 
   uglify: {
-    src: './plugins/*.js',
-    dist: './dist'
+    src: './tasks/*.js',
+    dist: './dist',
+    banner: true
   }
 };
 
 require('./index')(gulp, config);
 
-gulp.task('build', function(cb) {
+gulp.task('test', function(cb) {
   runSequence('clean', ['uglify', 'browserify', 'less', 'markdown'], cb);
 });
 
-gulp.task('dev', ['build', 'server']);
+gulp.task('build', function(cb) {
+  runSequence('clean', cb);
+});
+
+gulp.task('default', ['test', 'server']);

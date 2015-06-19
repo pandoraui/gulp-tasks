@@ -2,8 +2,24 @@
 
 function initTasks(gulp, config) {
   // TODO: 添加默认配置
-
   config = config || {};
+
+  var gutil = require('gulp-util');
+
+  config.DEFAULTS = {
+    banner: {
+      template: [
+        '/*! <%= pkg.name %> v<%= pkg.version %>',
+        'by Amaze UI Team',
+        '(c) ' + gutil.date(Date.now(), 'UTC:yyyy') + ' AllMobilize, Inc.',
+        'Licensed under <%= pkg.license %>',
+        gutil.date(Date.now(), 'isoDateTime') + ' */ \n'
+      ].join(' | '),
+      data: {
+        pkg: config.pkg
+      }
+    }
+  };
 
   // task: less
   config.less && require('./tasks/less')(gulp, config);

@@ -3,8 +3,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/amazeui-gulp-tasks.svg?style=flat-square)](https://www.npmjs.com/package/amazeui-gulp-tasks)
 <!--[![Build Status](https://img.shields.io/travis/amazeui/amazeui-gulp-tasks.svg?style=flat-square)](https://travis-ci.org/amazeui/amazeui-gulp-tasks)-->
-[![Dependency Status](https://img.shields.io/david/amazeui/amazeui-gulp-tasks.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-gulp-tasks)
-[![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-gulp-tasks.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-gulp-tasks#info=devDependencies)
+[![Dependency Status](https://img.shields.io/david/amazeui/gulp-tasks.svg?style=flat-square)](https://david-dm.org/amazeui/gulp-tasks)
+[![devDependency Status](https://img.shields.io/david/dev/amazeui/gulp-tasks.svg?style=flat-square)](https://david-dm.org/amazeui/gulp-tasks#info=devDependencies)
 
 Amaze UI 插件开发 gulp 任务。
 

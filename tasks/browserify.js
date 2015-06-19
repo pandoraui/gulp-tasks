@@ -9,6 +9,11 @@ var buffer = require('vinyl-buffer');
 
 module.exports = function(gulp, config) {
   var options = config.browserify || {};
+  var hasBanner = !!options.banner;
+  var bannerTpl = hasBanner && options.banner.template ||
+    config.DEFAULTS.banner.template;
+  var bannerData = hasBanner && options.banner.data ||
+    config.DEFAULTS.banner.data;
 
   var bundleInit = function() {
     var b = browserify(assign({}, watchify.args, options.bundleOptions));
@@ -33,7 +38,7 @@ module.exports = function(gulp, config) {
     }
 
     b.on('log', $.util.log);
-    bundle(b);
+    return bundle(b);
   };
 
   var bundle = function(b) {
@@ -42,9 +47,11 @@ module.exports = function(gulp, config) {
       .pipe(source(options.filename))
       .pipe(buffer())
       // .pipe($.replace('{{VERSION}}', pkg.version))
+      .pipe($.if(hasBanner, $.header(bannerTpl, bannerData)))
       .pipe(gulp.dest(options.dist))
       .pipe($.uglify())
       .pipe($.rename({suffix: '.min'}))
+      .pipe($.if(hasBanner, $.header(bannerTpl, bannerData)))
       .pipe(gulp.dest(options.dist));
   };
 
