@@ -6,6 +6,7 @@ var assign = require('object-assign');
 var $ = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var derequire = require('derequire/plugin');
 
 module.exports = function(gulp, config) {
   var options = config.browserify || {};
@@ -32,6 +33,7 @@ module.exports = function(gulp, config) {
     }
 
     if (options.plugins) {
+      b.plugin(derequire);
       options.plugins.forEach(function(p) {
         b.plugin(p);
       });
