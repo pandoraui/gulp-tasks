@@ -51,5 +51,8 @@
   },
   "browserify-shim": {
     "jquery": "global:jQuery"
+  },
+  "devDependencies": {
+    "detector": "^2.3.0"
   }
 }
